@@ -100,3 +100,41 @@ button {
   border: none;
   background: none;
 }
+
+/* ==========================================================================
+   GRID SYSTEM — 12 colunas com breakpoints
+   ========================================================================== */
+
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin-inline: auto;
+  padding-inline: var(--space-4);
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: var(--space-4);
+}
+
+/* Classes utilitárias de largura de coluna (mobile-first: ocupam tudo por padrão) */
+.col-12 { grid-column: span 12; }
+.col-8  { grid-column: span 12; }
+.col-6  { grid-column: span 12; }
+.col-4  { grid-column: span 12; }
+.col-3  { grid-column: span 12; }
+
+/* --- Breakpoint: tablet (>= 768px) --- */
+@media (min-width: 768px) {
+  .col-8  { grid-column: span 8; }
+  .col-6  { grid-column: span 6; }
+  .col-4  { grid-column: span 6; }
+  .col-3  { grid-column: span 4; }
+}
+
+/* --- Breakpoint: desktop (>= 1024px) --- */
+@media (min-width: 1024px) {
+  .col-4  { grid-column: span 4; }
+  .col-3  { grid-column: span 3; }
+}
