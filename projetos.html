@@ -25,7 +25,7 @@
   <main>
 
     <!-- Introdução da página -->
-    <section aria-labelledby="intro-titulo">
+    <section aria-labelledby="intro-titulo" class="container">
       <h1 id="intro-titulo">Nossas frentes de atuação</h1>
       <p>
         Conheça como você pode se envolver com o Instituto Raiz Comunitária:
@@ -35,11 +35,12 @@
     </section>
 
     <!-- Bloco de voluntariado -->
-    <section aria-labelledby="voluntariado-titulo">
+    <section aria-labelledby="voluntariado-titulo" class="container">
       <h2 id="voluntariado-titulo">Voluntariado</h2>
       <p>Atuamos em três frentes principais. Escolha a que mais combina com você:</p>
 
-      <article>
+      <div class="grid"> 
+        <article class="frente col-4">
         <h3>Educação infantil</h3>
         <p>
           Apoio em reforço escolar e atividades lúdicas para crianças de 6 a 12 anos,
@@ -53,7 +54,7 @@
         </dl>
       </article>
 
-      <article>
+      <article class="frente col-4">
         <h3>Capacitação profissional</h3>
         <p>
           Oficinas de qualificação para jovens e adultos em busca do primeiro
@@ -67,7 +68,7 @@
         </dl>
       </article>
 
-      <article>
+      <article class="frente col-4">
         <h3>Resgate cultural</h3>
         <p>
           Oficinas de música, dança e artesanato que valorizam a identidade
@@ -80,6 +81,8 @@
           <dd>Nenhum</dd>
         </dl>
       </article>
+      </div>
+      
     </section>
 
     <!-- Bloco de campanhas de doação -->
@@ -87,23 +90,28 @@
       <h2 id="doacoes-titulo">Campanhas de doação</h2>
       <p>Toda contribuição é revertida diretamente para as frentes de atuação acima.</p>
 
-      <article>
+      <div class="grid">
+        
+        <article class="campanha col-4">
         <h3>Merenda escolar</h3>
         <p>Garante a alimentação diária de 60 crianças no contraturno.</p>
         <p><strong>Meta mensal:</strong> R$ 4.500</p>
       </article>
 
-      <article>
+      <article class="campanha col-4">
         <h3>Kit material didático</h3>
         <p>Fornece cadernos, livros e materiais para as oficinas de capacitação.</p>
         <p><strong>Meta mensal:</strong> R$ 2.200</p>
       </article>
 
-      <article>
+      <article class="campanha col-4">
         <h3>Reforma do espaço cultural</h3>
         <p>Custeia a manutenção da sede onde ocorrem as oficinas culturais.</p>
         <p><strong>Meta mensal:</strong> R$ 6.000</p>
       </article>
+
+      </div>
+      
 
       <p>
         Quer contribuir com uma dessas campanhas?
