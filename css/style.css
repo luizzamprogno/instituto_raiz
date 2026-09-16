@@ -173,6 +173,7 @@ button {
   background-color: var(--color-primary);
   color: var(--color-white);
   padding-block: var(--space-3);
+  position: relative;
 }
 
 .header-inner {
@@ -212,6 +213,7 @@ button {
   font-weight: 700;
   border-bottom: 2px solid var(--color-secondary);
 }
+
 
 /* ==========================================================================
    FLEXBOX - Formulário de cadastro
@@ -399,6 +401,7 @@ form button[type="submit"]:hover {
     position: absolute;
     top: 100%;
     left: 0;
+    right: 0;
     width: 100%;
     background-color: var(--color-primary);
     padding: var(--space-3);
