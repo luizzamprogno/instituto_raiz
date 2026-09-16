@@ -25,7 +25,7 @@
   --color-success:        #2E7D32; /* verde — confirmações e sucesso */
 
   /* --- Tipografia: famílias --- */
-  --font-display: 'Fraunces', Georgia, serif;        /* títulos (h1–h3) */
+  --font-display: 'Poppins', Arial, sans-serif;        /* títulos (h1–h3) */
   --font-body:    'Work Sans', Arial, sans-serif;     /* corpo de texto, formulários */
 
   /* --- Tipografia: escala modular (razão 1.25, base 16px) --- */
@@ -74,6 +74,7 @@ body {
 h1, h2, h3 {
   font-family: var(--font-display);
   line-height: 1.2;
+  font-weight: 700;
 }
 
 a {
@@ -185,4 +186,115 @@ button {
 .nav-list a[aria-current="page"] {
   font-weight: 700;
   border-bottom: 2px solid var(--color-secondary);
+}
+
+/* ==========================================================================
+   FLEXBOX - Formulário de cadastro
+   ========================================================================== */
+
+.form-section {
+  max-width: 700px;
+  margin-inline: auto;
+  padding-block: var(--space-6);
+  padding-inline: var(--space-4);
+}
+
+fieldset {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  border: 1px solid var(--color-neutral-200);
+  border-radius: 8px;
+  padding: var(--space-4);
+  margin-bottom: var(--space-5);
+}
+
+legend {
+  font-family: var(--font-display);
+  font-size: var(--text-md);
+  color: var(--color-primary);
+  padding-inline: var(--space-2);
+}
+
+.campo {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+}
+
+.campo label {
+  font-size: var(--text-xs);
+  color: var(--color-neutral-600);
+  font-weight: 600;
+}
+
+.campo input,
+.campo select,
+.campo textarea {
+  padding: var(--space-2) var(--space-3);
+  border: 1px solid var(--color-neutral-200);
+  border-radius: 6px;
+  background-color: var(--color-white);
+}
+
+.campo input:focus,
+.campo select:focus,
+.campo textarea:focus {
+  outline: 2px solid var(--color-secondary);
+  outline-offset: 1px;
+}
+
+.campo-checkbox {
+  flex-direction: row;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+form button[type="submit"] {
+  align-self: flex-start;
+  background-color: var(--color-secondary);
+  color: var(--color-white);
+  padding: var(--space-2) var(--space-5);
+  border-radius: 6px;
+  font-weight: 600;
+}
+
+form button[type="submit"]:hover {
+  background-color: var(--color-secondary-dark);
+}
+
+/* ==========================================================================
+   FLEXBOX - Cards internos (frentes de voluntariado e campanhas)
+   ========================================================================== */
+
+.frente,
+.campanha {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  background-color: var(--color-white);
+  border: 1px solid var(--color-neutral-200);
+  border-radius: 8px;
+  padding: var(--space-4);
+  height: 100%;
+}
+
+.frente dl {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+  margin-top: auto;
+  padding-top: var(--space-3);
+  border-top: 1px solid var(--color-neutral-200);
+}
+
+.frente dt {
+  font-size: var(--text-xs);
+  color: var(--color-neutral-600);
+  font-weight: 600;
+}
+
+.frente dd {
+  font-size: var(--text-sm);
+  margin-bottom: var(--space-2);
 }

@@ -5,15 +5,18 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Instituto Raiz Comunitária | Cadastro</title>
   <meta name="description" content="Cadastre-se como voluntário ou doador do Instituto Raiz Comunitária.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&family=Work+Sans:wght@400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 
-  <header>
-    <div>
-      <a href="index.html">Instituto Raiz Comunitária</a>
+  <header class="site-header">
+    <div class="header-inner">
+      <a href="index.html" class="brand">Instituto Raiz Comunitária</a>
       <nav aria-label="Navegação principal">
-        <ul>
+        <ul class="nav-list">
           <li><a href="index.html">Início</a></li>
           <li><a href="projetos.html">Projetos</a></li>
           <li><a href="cadastro.html" aria-current="page">Cadastro</a></li>
@@ -29,7 +32,7 @@
       <p>Preencha o formulário abaixo para se cadastrar como voluntário ou apoiador.</p>
     </section>
 
-    <section aria-labelledby="form-titulo">
+    <section class="form-section" aria-labelledby="form-titulo">
       <h2 id="form-titulo">Formulário de cadastro</h2>
 
       <form id="form-cadastro">
@@ -37,17 +40,17 @@
         <fieldset>
           <legend>Dados pessoais</legend>
 
-          <div>
+          <div class="campo">
             <label for="nome">Nome completo</label>
             <input type="text" id="nome" name="nome" required minlength="5" autocomplete="name">
           </div>
 
-          <div>
+          <div class="campo">
             <label for="nascimento">Data de nascimento</label>
             <input type="date" id="nascimento" name="nascimento" required>
           </div>
 
-          <div>
+          <div class="campo">
             <label for="cpf">CPF</label>
             <input
               type="text"
@@ -62,12 +65,12 @@
             >
           </div>
 
-          <div>
+          <div class="campo">
             <label for="email">E-mail</label>
             <input type="email" id="email" name="email" required autocomplete="email">
           </div>
 
-          <div>
+          <div class="campo">
             <label for="telefone">Telefone</label>
             <input
               type="tel"
@@ -86,7 +89,7 @@
         <fieldset>
           <legend>Endereço</legend>
 
-          <div>
+          <div class="campo">
             <label for="cep">CEP</label>
             <input
               type="text"
@@ -101,17 +104,17 @@
             >
           </div>
 
-          <div>
+          <div class="campo">
             <label for="endereco">Endereço</label>
             <input type="text" id="endereco" name="endereco" required autocomplete="address-line1">
           </div>
 
-          <div>
+          <div class="campo">
             <label for="cidade">Cidade</label>
             <input type="text" id="cidade" name="cidade" required autocomplete="address-level2">
           </div>
 
-          <div>
+          <div class="campo">
             <label for="estado">Estado</label>
             <select id="estado" name="estado" required>
               <option value="">Selecione</option>
@@ -149,7 +152,7 @@
         <fieldset>
           <legend>Envolvimento</legend>
 
-          <div>
+          <div class="campo">
             <label for="interesse">Área de interesse</label>
             <select id="interesse" name="interesse" required>
               <option value="">Selecione</option>
@@ -160,12 +163,12 @@
             </select>
           </div>
 
-          <div>
+          <div class="campo">
             <label for="mensagem">Mensagem (opcional)</label>
             <textarea id="mensagem" name="mensagem" rows="4"></textarea>
           </div>
 
-          <div>
+          <div class="campo-checkbo">
             <input type="checkbox" id="termos" name="termos" required>
             <label for="termos">Li e aceito os termos de uso e a política de privacidade</label>
           </div>
