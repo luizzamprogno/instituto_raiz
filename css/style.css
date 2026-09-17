@@ -437,3 +437,57 @@ form button[type="submit"]:hover {
     color: var(--color-white);
   }
 }
+
+/* ==========================================================================
+   FEEDBACK VISUAL — Estados de botão e validação de formulário
+   ========================================================================== */
+
+/* --- Estados do botão de envio --- */
+form button[type="submit"] {
+  transition: background-color 0.2s ease, transform 0.1s ease, box-shadow 0.2s ease;
+}
+
+form button[type="submit"]:hover {
+  background-color: var(--color-secondary-dark);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
+
+form button[type="submit"]:focus-visible {
+  outline: 3px solid var(--color-primary-light);
+  outline-offset: 2px;
+}
+
+form button[type="submit"]:active {
+  transform: scale(0.97);
+  box-shadow: none;
+}
+
+form button[type="submit"]:disabled {
+  background-color: var(--color-neutral-200);
+  color: var(--color-neutral-600);
+  cursor: not-allowed;
+  transform: none;
+}
+
+/* --- Validação visual dos campos (usa :valid/:invalid nativos do HTML5) --- */
+/* :not(:placeholder-shown) evita marcar em vermelho um campo vazio que o usuário ainda não tocou */
+.campo input:not(:placeholder-shown):invalid,
+.campo select:invalid {
+  border-color: var(--color-error);
+}
+
+.campo input:not(:placeholder-shown):valid,
+.campo select:valid {
+  border-color: var(--color-success);
+}
+
+/* Mensagem de erro exibida abaixo do campo inválido */
+.campo input:not(:placeholder-shown):invalid ~ .erro-campo {
+  display: block;
+}
+
+.erro-campo {
+  display: none;
+  font-size: var(--text-xs);
+  color: var(--color-error);
+}
