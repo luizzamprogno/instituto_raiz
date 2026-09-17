@@ -471,18 +471,16 @@ form button[type="submit"]:disabled {
 
 /* --- Validação visual dos campos (usa :valid/:invalid nativos do HTML5) --- */
 /* :not(:placeholder-shown) evita marcar em vermelho um campo vazio que o usuário ainda não tocou */
-.campo input:not(:placeholder-shown):invalid,
-.campo select:invalid {
+.campo input[pattern]:not(:placeholder-shown):invalid {
   border-color: var(--color-error);
 }
 
-.campo input:not(:placeholder-shown):valid,
-.campo select:valid {
+.campo input[pattern]:not(:placeholder-shown):valid {
   border-color: var(--color-success);
 }
 
 /* Mensagem de erro exibida abaixo do campo inválido */
-.campo input:not(:placeholder-shown):invalid ~ .erro-campo {
+.campo input[pattern]:not(:placeholder-shown):invalid ~ .erro-campo {
   display: block;
 }
 
@@ -490,4 +488,127 @@ form button[type="submit"]:disabled {
   display: none;
   font-size: var(--text-xs);
   color: var(--color-error);
+}
+
+/* ==========================================================================
+   COMPONENTES DE FEEDBACK — Badges, Alertas, Modal e Toast
+   ========================================================================== */
+
+/* --- Badges: etiquetas de categorização semântica --- */
+.badge {
+  display: inline-block;
+  font-size: var(--text-xs);
+  font-weight: 600;
+  padding: var(--space-1) var(--space-2);
+  border-radius: 999px;
+  align-self: flex-start;
+}
+
+.badge-success {
+  background-color: rgba(46, 125, 50, 0.12);
+  color: var(--color-success);
+}
+
+.badge-urgente {
+  background-color: rgba(201, 138, 44, 0.15);
+  color: var(--color-secondary-dark);
+}
+
+/* --- Alertas: caixas de aviso contextual --- */
+.alert {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-2);
+  padding: var(--space-3);
+  border-radius: 8px;
+  border-left: 4px solid;
+  font-size: var(--text-sm);
+  margin-bottom: var(--space-4);
+}
+
+.alert-info {
+  background-color: rgba(31, 58, 46, 0.06);
+  border-color: var(--color-primary);
+  color: var(--color-primary);
+}
+
+.alert-success {
+  background-color: rgba(46, 125, 50, 0.1);
+  border-color: var(--color-success);
+  color: var(--color-success);
+}
+
+.alert-error {
+  background-color: rgba(179, 38, 30, 0.08);
+  border-color: var(--color-error);
+  color: var(--color-error);
+}
+
+/* --- Modal: janela de detalhes via checkbox hack --- */
+.modal-toggle {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.modal-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background-color: rgba(26, 26, 24, 0.6);
+  align-items: center;
+  justify-content: center;
+  z-index: 100;
+}
+
+.modal-toggle:checked ~ .modal-overlay {
+  display: flex;
+}
+
+.modal-box {
+  background-color: var(--color-white);
+  border-radius: 10px;
+  padding: var(--space-5);
+  max-width: 480px;
+  width: 90%;
+  position: relative;
+}
+
+.modal-close {
+  position: absolute;
+  top: var(--space-3);
+  right: var(--space-3);
+  font-size: var(--text-md);
+  cursor: pointer;
+  color: var(--color-neutral-600);
+}
+
+.modal-open-btn {
+  display: inline-block;
+  cursor: pointer;
+  color: var(--color-primary);
+  font-weight: 600;
+  text-decoration: underline;
+}
+
+/* --- Toast: notificação temporária via animação CSS --- */
+.toast {
+  position: fixed;
+  bottom: var(--space-4);
+  right: var(--space-4);
+  background-color: var(--color-success);
+  color: var(--color-white);
+  padding: var(--space-3) var(--space-4);
+  border-radius: 8px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+  opacity: 0;
+  animation: toast-aparecer 6s ease forwards;
+  z-index: 200;
+}
+
+@keyframes toast-aparecer {
+  0%   { opacity: 0; transform: translateY(12px); }
+  10%  { opacity: 1; transform: translateY(0); }
+  85%  { opacity: 1; transform: translateY(0); }
+  100% { opacity: 0; transform: translateY(12px); }
 }

@@ -54,11 +54,24 @@
     <!-- Bloco de voluntariado -->
     <section aria-labelledby="voluntariado-titulo" class="container">
       <h2 id="voluntariado-titulo">Voluntariado</h2>
-      <p>Atuamos em três frentes principais. Escolha a que mais combina com você:</p>
+      <p>
+        Atuamos em três frentes principais. Escolha a que mais combina com você:
+        <label for="modal-info" class="modal-open-btn">Como funciona o processo de seleção?</label>
+      </p>
+
+      <input type="checkbox" id="modal-info" class="modal-toggle">
+      <div class="modal-overlay">
+        <div class="modal-box">
+          <label for="modal-info" class="modal-close" aria-label="Fechar">&times;</label>
+          <h3>Como funciona o processo de seleção</h3>
+          <p>Após o cadastro, nossa equipe entra em contato em até 5 dias úteis para agendar uma entrevista inicial e o treinamento obrigatório antes do início das atividades.</p>
+        </div>
+      </div>
 
       <div class="grid"> 
         <article class="frente col-4">
         <h3>Educação infantil</h3>
+        <span class="badge badge-success">Vagas abertas</span>
         <p>
           Apoio em reforço escolar e atividades lúdicas para crianças de 6 a 12 anos,
           duas vezes por semana, no contraturno escolar.
@@ -111,6 +124,7 @@
 
         <article class="campanha col-4">
         <h3>Merenda escolar</h3>
+        <span class="badge badge-success">Vagas abertas</span>
         <p>Garante a alimentação diária de 60 crianças no contraturno.</p>
         <p><strong>Meta mensal:</strong> R$ 4.500</p>
       </article>
