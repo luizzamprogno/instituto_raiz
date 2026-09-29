@@ -1,77 +1,50 @@
 # Instituto Raiz Comunitária
 
-Site institucional de uma ONG fictícia, desenvolvido como Single Page
-Application (SPA) em **HTML, CSS e JavaScript puro** (sem frameworks ou
-bundlers), com foco em fundamentos de front-end: roteamento client-side,
-componentização via templates, formulários validados, persistência local
-e boas práticas de versionamento.
+Site institucional de uma ONG fictícia. É uma SPA (Single Page Application) feita em HTML, CSS e JavaScript puro, sem frameworks.
 
-## Como executar localmente
+## Como executar
 
-Como a navegação faz `fetch` dos fragmentos HTML de cada rota, o projeto
-precisa ser servido por um servidor HTTP (abrir o `index.html` direto
-pelo `file://` não funciona). Qualquer servidor estático resolve, por
-exemplo:
+O site usa fetch para carregar as páginas, então precisa rodar em um servidor local (não funciona abrindo o arquivo direto). Exemplo:
 
 ```bash
 python -m http.server 8080
-# ou
-npx serve .
 ```
 
-Depois, acesse `http://localhost:8080`.
+Depois acesse http://localhost:8080
 
-## Estrutura do projeto
+## Estrutura de pastas
 
 ```
-├── index.html              # casca da SPA (header, footer, #app)
-├── html/                   # fragmentos de cada rota (carregados via fetch)
-│   ├── inicio.html
-│   ├── projetos.html
-│   └── cadastro.html
-├── css/style.css           # estilos da aplicação
-└── js/
-    ├── main.js             # ponto de entrada: inicializa menu e router
-    └── modules/
-        ├── router.js       # motor de rotas (hash + fetch), agnóstico de página
-        ├── routes.js       # mapa hash → arquivo HTML + função de inicialização
-        ├── menu.js         # comportamento do menu mobile
-        ├── data.js         # dados estáticos (frentes de voluntariado, campanhas)
-        ├── templates.js    # geração de HTML via Template Literals
-        ├── projetos.js     # controller da página Projetos
-        ├── cadastro.js     # controller da página Cadastro (form, eventos)
-        ├── mascaras.js     # formatação de CPF/telefone/CEP
-        ├── validacao.js    # regras de validação e feedback visual
-        ├── storage.js      # persistência do histórico de cadastros (localStorage)
-        └── toast.js        # notificação visual temporária
+index.html          - base da SPA (header, footer, #app)
+html/                - fragmentos de cada pagina
+css/style.css        - estilos
+js/main.js           - ponto de entrada
+js/modules/          - cada arquivo cuida de uma parte:
+  router.js          - motor de rotas
+  routes.js          - lista de rotas
+  menu.js            - menu mobile
+  data.js            - dados fixos (frentes, campanhas)
+  templates.js       - gera HTML a partir dos dados
+  projetos.js        - controla a pagina Projetos
+  cadastro.js        - controla a pagina Cadastro
+  mascaras.js         - formata CPF, telefone e CEP
+  validacao.js        - valida o formulario
+  storage.js           - salva cadastros no localStorage
+  toast.js             - mensagem de sucesso na tela
 ```
 
-## Principais funcionalidades
+## Funcionalidades
 
-- **Roteamento via hash**, sem reload de página, com fragmentos HTML
-  carregados sob demanda.
-- **Templates dinâmicos**: os cards de Projetos são gerados a partir de
-  um array de dados, não escritos manualmente no HTML.
-- **Formulário de cadastro** com máscaras de campo, validação em tempo
-  real e no envio (com mensagens de erro injetadas via JS).
-- **Persistência local**: os cadastros enviados ficam salvos no
-  `localStorage` e são restaurados ao recarregar a página.
-- **Day.js** (via CDN) para formatação e cálculo relativo de datas.
+- Navegação sem reload de página, por hash (#inicio, #projetos, #cadastro)
+- Cards de Projetos gerados por JavaScript a partir de uma lista de dados
+- Formulário com máscara, validação em tempo real e ao enviar
+- Cadastros salvos no navegador (localStorage), aparecem de novo se a página for recarregada
+- Uso da biblioteca Day.js para formatar datas
 
-## Estratégia de versionamento (GitFlow)
+## Organização das branches (GitFlow)
 
-O repositório segue o modelo **GitFlow**, simplificado para um projeto
-individual:
+- main: versão estável do projeto
+- develop: onde as novidades são juntadas antes de ir para o main
+- feature/nome-da-funcionalidade: uma branch para cada funcionalidade nova
 
-- **`main`** — código estável, correspondente ao que está em produção.
-- **`develop`** — branch de integração contínua das novas funcionalidades.
-- **`feature/*`** — uma branch por funcionalidade, criada a partir de
-  `develop` e mesclada de volta a ela ao concluir (ex.:
-  `feature/documentacao-readme`).
-- **`hotfix/*`** — reservado para correções urgentes aplicadas
-  diretamente sobre `main`, quando necessário.
-
-O fluxo de trabalho é: criar uma branch `feature/*` a partir de
-`develop`, desenvolver e commitar ali, mesclar em `develop` ao concluir,
-e periodicamente mesclar `develop` em `main` para gerar uma nova versão
-estável.
+Fluxo: crio uma branch feature a partir da develop, termino o que precisa, junto de volta na develop, e depois junto a develop no main.
