@@ -290,6 +290,43 @@ form button[type="submit"]:hover {
   background-color: var(--color-secondary-dark);
 }
 
+/* --- Histórico de cadastros persistido via localStorage --- */
+.lista-cadastros {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  list-style: none;
+  padding: 0;
+}
+
+.cadastro-salvo {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: var(--space-2);
+  padding: var(--space-3);
+  border: 1px solid var(--color-neutral-200);
+  border-radius: 8px;
+  background-color: var(--color-white);
+}
+
+.cadastro-salvo span {
+  color: var(--color-neutral-600);
+  font-size: var(--text-sm);
+}
+
+.cadastro-salvo time {
+  margin-left: auto;
+  font-size: var(--text-xs);
+  color: var(--color-neutral-600);
+}
+
+.cadastro-vazio {
+  color: var(--color-neutral-600);
+  font-size: var(--text-sm);
+  font-style: italic;
+}
+
 /* ==========================================================================
    FLEXBOX - Cards internos (frentes de voluntariado e campanhas)
    ========================================================================== */
@@ -469,25 +506,26 @@ form button[type="submit"]:disabled {
   transform: none;
 }
 
-/* --- Validação visual dos campos (usa :valid/:invalid nativos do HTML5) --- */
-/* :not(:placeholder-shown) evita marcar em vermelho um campo vazio que o usuário ainda não tocou */
-.campo input[pattern]:not(:placeholder-shown):invalid {
+/* --- Validação visual dos campos (classes aplicadas via JS em js/modules/validacao.js) --- */
+.campo input.campo-invalido,
+.campo select.campo-invalido {
   border-color: var(--color-error);
 }
 
-.campo input[pattern]:not(:placeholder-shown):valid {
+.campo input.campo-valido,
+.campo select.campo-valido {
   border-color: var(--color-success);
 }
 
-/* Mensagem de erro exibida abaixo do campo inválido */
-.campo input[pattern]:not(:placeholder-shown):invalid ~ .erro-campo {
-  display: block;
-}
-
+/* Mensagem de notificação injetada/atualizada via JS abaixo do campo inválido */
 .erro-campo {
   display: none;
   font-size: var(--text-xs);
   color: var(--color-error);
+}
+
+.erro-campo.visivel {
+  display: block;
 }
 
 /* ==========================================================================

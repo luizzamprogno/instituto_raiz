@@ -9,7 +9,7 @@
     <section class="form-section" aria-labelledby="form-titulo">
       <h2 id="form-titulo">Formulário de cadastro</h2>
 
-      <form id="form-cadastro">
+      <form id="form-cadastro" novalidate>
 
         <fieldset>
           <legend>Dados pessoais</legend>
@@ -145,7 +145,7 @@
             <textarea id="mensagem" name="mensagem" rows="4"></textarea>
           </div>
 
-          <div class="campo-checkbo">
+          <div class="campo-checkbox">
             <input type="checkbox" id="termos" name="termos" required>
             <label for="termos">Li e aceito os termos de uso e a política de privacidade</label>
           </div>
@@ -154,4 +154,10 @@
         <button type="submit">Enviar cadastro</button>
 
       </form>
+    </section>
+
+    <section aria-labelledby="historico-titulo" class="container">
+      <h2 id="historico-titulo">Cadastros salvos neste navegador</h2>
+      <p>Estes dados ficam salvos apenas neste dispositivo (via <code>localStorage</code>), sem envio a um servidor.</p>
+      <ul id="lista-cadastros" class="lista-cadastros"></ul>
     </section>
